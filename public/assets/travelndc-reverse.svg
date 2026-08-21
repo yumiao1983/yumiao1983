@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 492 94" role="img" aria-labelledby="title desc">
+  <title id="title">TravelNDC</title>
+  <desc id="desc">TravelNDC reverse white logo with blue travel trail and yellow accent</desc>
+  <g fill="none" stroke-linecap="round">
+    <path d="M7 23h91" stroke="#12B8EF" stroke-width="10"/>
+    <path d="M7 40h138" stroke="#3598C8" stroke-width="10"/>
+    <path d="M22 56h116" stroke="#3598C8" stroke-width="10"/>
+    <path d="M89 74c22 18 54 15 71-9" stroke="#12B8EF" stroke-width="8"/>
+    <path d="M107 76c20 14 48 11 62-7" stroke="#FFC400" stroke-width="7"/>
+  </g>
+  <text x="180" y="60" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" letter-spacing="-2">TravelNDC</text>
+</svg>

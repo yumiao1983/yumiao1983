@@ -1,0 +1,55 @@
+/* TravelNDC brand palette: blue leads; yellow is reserved for focused emphasis. */
+:root { --brand-blue: #159ed5; --brand-cyan: #12b8ef; --brand-yellow: #ffc400; }
+
+/* Turn former high-volume yellow surfaces into the primary TravelNDC blue. */
+.yellow, .faq, .compare-table > div > b, .orb, .rotating-label { background: var(--brand-blue); }
+.yellow { color: #fff; }
+.yellow-dot { background: var(--brand-yellow); }
+.hero h1 em { color: var(--brand-yellow); }
+.tag, .photo-card span { background: var(--brand-yellow); color: #151515; }
+.score { background: var(--brand-blue); color: #fff; }
+.feature.active { border-bottom-color: var(--brand-blue); }
+.feature li::before, .prompt span { color: var(--brand-blue); }
+.planner-glow { background: radial-gradient(ellipse, var(--brand-cyan) 0%, rgba(18,184,239,.31) 35%, transparent 68%); }
+
+/* Vector wordmark built from the provided brand reference for dark surfaces. */
+.brand-logo { gap: 9px; }
+.brand-logo img { display: block; width: 146px; height: auto; }
+.brand-logo small { border-left-color: rgba(255,255,255,.38); }
+
+/* Preserve each airline logo's native proportions; black is applied consistently. */
+.airline-logos { display: grid; grid-template-columns: repeat(6, minmax(80px, 1fr)); align-items: center; gap: clamp(24px, 4vw, 70px); max-width: 1180px; }
+.airline-logos img { display: block; width: 100%; max-width: 150px; max-height: 52px; margin: auto; object-fit: contain; filter: grayscale(1) brightness(0); opacity: .78; transition: opacity .2s ease, transform .2s ease; }
+.airline-logos img:hover { opacity: 1; transform: translateY(-3px); }
+
+@keyframes glitch { 0%,100% { text-shadow: 0 0 transparent; } 22% { text-shadow: 2px 0 var(--brand-cyan), -2px 0 rgba(255,196,0,.78); } 24% { text-shadow: -2px 0 var(--brand-cyan), 2px 0 rgba(255,196,0,.78); } 26% { text-shadow: 0 0 transparent; } }
+
+@media (max-width: 850px) { .airline-logos { grid-template-columns: repeat(3, 1fr); gap: 25px 35px; } }
+@media (max-width: 480px) { .brand-logo img { width: 120px; } .airline-logos { grid-template-columns: repeat(2, 1fr); } }
+
+/* Exact user-supplied company lockup, reduced to a single reverse-white mark. */
+.brand-logo img { width: 178px; filter: brightness(0) invert(1); }
+.brand-logo small { display: none; }
+
+/* Static terminal photography, designed with quiet copy space at the left. */
+.hero { background-image: linear-gradient(90deg, rgba(5,13,21,.86), rgba(5,13,21,.46) 44%, rgba(5,13,21,.12)), url("hero-terminal.png"); background-position: center; }
+.hero h1 em { color: #fff; text-shadow: none; }
+.hero h1 { animation: none; text-shadow: none; }
+
+/* Independently supplied airline assets use consistent display boxes and native proportions. */
+.logo-wall { width: 100%; overflow: hidden; padding: 6px 0; cursor: pointer; }
+.logo-wall-track { display: flex; align-items: center; width: max-content; animation: airline-marquee 74s linear infinite; animation-play-state: paused; }
+.logo-wall:hover .logo-wall-track, .logo-wall:focus-within .logo-wall-track { animation-play-state: running; }
+.airline-logo { display: block; flex: 0 0 168px; width: 168px; height: 70px; margin-right: 22px; object-fit: contain; }
+@keyframes airline-marquee { to { transform: translateX(-50%); } }
+@media (max-width: 850px) { .airline-logo { flex-basis: 136px; width: 136px; height: 58px; margin-right: 14px; } }
+
+/* FAQ: high-contrast dark section with a paper-white expanded answer. */
+.faq { background: #050505; color: #fff; }
+.faq .eyebrow, .faq .section-heading > p:last-child { color: #bdbab4; }
+.faq h2 { color: #fff; }
+.faq h2 em { color: #fff; }
+.faq details { border-bottom-color: rgba(255,255,255,.36); }
+.faq summary { color: #fff; }
+.faq details[open] { background: #fffdf9; color: #151515; }
+.faq details[open] summary, .faq details[open] p { color: #151515; }
