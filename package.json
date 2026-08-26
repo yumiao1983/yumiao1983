@@ -1,0 +1,11 @@
+{
+  "name": "travelndc-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env server.mjs"
+  },
+  "dependencies": {
+    "nodemailer": "^7.0.13"
+  }
+}
