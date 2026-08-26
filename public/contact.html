@@ -49,7 +49,7 @@
 <p>Room 8D, 8th Floor, Air China Building<br>No. 36 Xiaoyun Road, Chaoyang District<br>Beijing, China</p>
 <p>Global coverage<br>Travel retail expertise<br>Human support</p>
 </aside>
-<form class="contact-form">
+<form class="contact-form" novalidate>
 <label>First name<input type="text" name="first-name" placeholder="Your first name">
 </label>
 <label>Last name<input type="text" name="last-name" placeholder="Your last name">
@@ -83,7 +83,27 @@
 <div><a href="#">Privacy policy</a><a href="#">Terms of service</a><a href="index.html#top">Back to top ↑</a></div>
 </div>
 </footer>
-<script>document.querySelector('.contact-form').addEventListener('submit',e=>{e.preventDefault();e.currentTarget.querySelector('button').textContent='Thank you — we’ll be in touch.'})</script>
+<script>
+document.querySelector('.contact-form').addEventListener('submit', async event => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const button = form.querySelector('button');
+  const formData = new FormData(form);
+  const payload = Object.fromEntries(formData.entries());
+  button.disabled = true;
+  button.textContent = 'Sending…';
+  try {
+    const response = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || 'Unable to send enquiry.');
+    form.reset();
+    button.textContent = 'Thank you — we’ll be in touch.';
+  } catch (error) {
+    button.disabled = false;
+    button.textContent = error.message || 'Unable to send enquiry. Try again.';
+  }
+});
+</script>
 <script src="assets/i18n.js"></script>
 </body>
 </html>
